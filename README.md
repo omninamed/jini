@@ -17,3 +17,31 @@ engine features:
 - read everything that can read ignore all errors
 - existing objects/pairs are added/updated (sync read)
 - when duplicat found and type of elements is not equal skip reading of entry element (and all subelements if it is object)
+
+example
+
+test.jini
+```json
+"object"
+{
+  "nested_object"
+  {
+    "test_key":"Hello, World!"
+    }
+}
+```
+
+main.cpp
+```c++
+#include "jini.h"
+#include <iostream>
+using namespace std;
+
+int wmain ( )
+{
+  jini::Object ( L"./test.jini" );
+  jini::read ( j );
+  cout << j.get_pair ( L"object.nested_object.test_key", L"." ).get_string ( ) << endl;
+  return 0;
+};
+```
