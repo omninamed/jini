@@ -27,7 +27,7 @@ test.jini
   "nested_object"
   {
     "test_key":"Hello, World!"
-    }
+  }
 }
 ```
 
